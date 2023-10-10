@@ -1,5 +1,6 @@
 const express = require("express") // ini perlu
 const cors = require('cors');
+const path = require('path'); //tidak perlu npm install
 const connection = require('./app/model/index')
 
 // init express server and router
@@ -13,10 +14,6 @@ app.use(express.urlencoded({ extended: false })); // supaya express bisa menerim
 
 // http router
 app.use("/", mainRouter);
-
-app.get('*', function routeHandler(req, res) {
-    res.send('ok');
-  });
 
 const port = 3000
 app.listen(port, function(){
